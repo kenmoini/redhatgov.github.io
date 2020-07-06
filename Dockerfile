@@ -1,14 +1,18 @@
-FROM registry.access.redhat.com/ubi7/php-73:latest
-
-USER root
+FROM node:10-alpine as builder
 
 RUN mkdir /opt/app-src
 
 COPY . /opt/app-src
 
-RUN cd /opt/app-src \
- && bin/hugo \
- && mv public/ /var/html/www
+RUN apk --update --no-cache add asciidoctor util-linux asciidoc \
+ && cd /opt/app-src \
+ && bin/hugo
+
+FROM registry.access.redhat.com/rhscl/httpd-24-rhel7:latest
+
+USER root
+RUN mkdir -p /var/www/html
+COPY --from=builder /opt/app-src/public /var/www/html
 
 # Drop the root user and make the content of /opt/app-root owned by user 1001
 RUN chown -R 1001:0 /var/www/ && chmod -R ug+rwx /var/www/ && \
@@ -16,5 +20,3 @@ RUN chown -R 1001:0 /var/www/ && chmod -R ug+rwx /var/www/ && \
     rpm-file-permissions
 
 USER 1001
-
-CMD "/usr/libexec/s2i/run"
