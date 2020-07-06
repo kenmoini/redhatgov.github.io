@@ -1,5 +1,6 @@
 ---
 title: SELinux Policy Workshop
+workshops: selinux_policy
 menu:
   main:
     parent: workshops

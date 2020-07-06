@@ -1,5 +1,6 @@
 ---
 title: Containers 101 Workshop
+workshops: containers_101
 menu:
   main:
     parent: workshops

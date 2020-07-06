@@ -1,5 +1,6 @@
 ---
 title: Ansible Automation Workshop
+workshops: ansible_automation
 menu:
   main:
     parent: workshops

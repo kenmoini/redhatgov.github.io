@@ -1,5 +1,6 @@
 ---
 title: OpenShift 4 101
+workshops: openshift_4_101
 menu:
   main:
     parent: workshops

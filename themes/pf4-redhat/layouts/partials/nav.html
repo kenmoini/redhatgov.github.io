@@ -1,0 +1,38 @@
+<div class="pf-c-page__sidebar collapse show" id="mainSideNav">
+  <div class="pf-c-page__sidebar-body">
+    <nav class="pf-c-nav" id="page-expandable-nav-example-expandable-nav" aria-label="Global">
+      <ul class="pf-c-nav__list">
+
+        {{ $taxonomy := .Params.workshops }}
+        {{ $url := .Permalink }}
+
+        <li class="pf-c-nav__item">
+          {{ $mainLabPage := delimit (slice "/workshops" .Params.workshops) "/" }}
+          {{ $mainIndexPage := (print ($mainLabPage | absURL) "/") }}
+          {{ if eq $url $mainIndexPage }}
+          <a class="pf-c-nav__link pf-m-current" href="{{ $mainIndexPage }}">Workshop Index</a>
+          {{ else }}
+          <a class="pf-c-nav__link" href="{{ $mainIndexPage }}">Workshop Index</a>
+
+          {{ end }}
+        </li>
+        {{ with $taxonomy }}
+        {{ $sortByField := "workshop_weight" }}
+
+
+        {{ range $index, $element := ((index $.Site.Taxonomies.workshops $taxonomy).Pages.ByParam $sortByField) }}
+        <li class="pf-c-nav__item">
+          {{ if eq $url .Permalink }}
+          <a href="{{ .Permalink }}" class="pf-c-nav__link pf-m-current" id="" aria-expanded="false">{{ .Title }}
+            {{ else }}
+            <a href="{{ .Permalink }}" class="pf-c-nav__link" id="" aria-expanded="false">{{ .Title }}
+              {{ end }}
+            </a>
+        </li>
+        {{ end }}
+
+        {{ end }}
+      </ul>
+    </nav>
+  </div>
+</div>

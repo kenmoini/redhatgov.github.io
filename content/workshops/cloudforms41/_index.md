@@ -1,5 +1,6 @@
 ---
 title: CloudForms Workshops
+workshops: cloudforms41
 subtitle: Don't just read about what CloudForms 4.1 can do — try it for yourself with these workshops!
 menu:
   main:

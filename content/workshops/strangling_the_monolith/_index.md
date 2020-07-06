@@ -1,5 +1,6 @@
 ---
 title: Microservices Workshop - Strangling the Monolith
+workshops: strangling_the_monolith
 menu:
   main:
     parent: workshops

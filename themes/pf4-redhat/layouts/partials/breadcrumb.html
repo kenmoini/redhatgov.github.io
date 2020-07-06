@@ -1,0 +1,39 @@
+{{ define "breadcrumb" }}
+{{ with .Parent }}
+{{ template "breadcrumb" . }}
+<li class="pf-c-breadcrumb__item"><a href="{{ .URL }}">{{ if .IsHome }}Home{{ else }}{{.Title}}{{ end }}</a>
+  <span class="pf-c-breadcrumb__item-divider">
+    <i class="fas fa-angle-right" aria-hidden="true"></i>
+  </span>
+</li>
+{{ end }}
+{{ end }}
+{{ if not .IsHome }}
+
+<section class="pf-c-page__main-breadcrumb">
+  <nav class="pf-c-breadcrumb" aria-label="breadcrumb">
+    <ol class="pf-c-breadcrumb__list">
+
+      {{ template "breadcrumb" . }}
+      {{ $currentPage := . }}
+      {{ $mainLabPage := delimit (slice "/workshops" .Params.workshops) "/" }}
+      {{ $mainIndexPage := (print $mainLabPage "/") }}
+      {{ with .Site.GetPage $mainIndexPage }}
+      {{ if ne . $currentPage }}
+      <li class="pf-c-breadcrumb__item">
+
+        <a class="pf-c-breadcrumb__link" href="{{ .Permalink }}">{{ .Title }}</a>
+        <span class="pf-c-breadcrumb__item-divider">
+          <i class="fas fa-angle-right" aria-hidden="true"></i>
+        </span>
+
+      </li>
+      {{ end }}
+      {{ end }}
+      <li class="pf-c-breadcrumb__item">
+        <a href="#" class="pf-c-breadcrumb__link pf-m-current" aria-current="page">{{.Title}}</a>
+      </li>
+    </ol>
+  </nav>
+</section>
+{{ end }}

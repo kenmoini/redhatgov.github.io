@@ -1,5 +1,6 @@
 ---
 title: OpenShift Service Mesh
+workshops: openshift_service_mesh
 menu:
   main:
     parent: workshops

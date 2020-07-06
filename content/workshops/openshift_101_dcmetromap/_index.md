@@ -1,5 +1,6 @@
 ---
 title: OpenShift 101 - DC Metro Map Workshop
+workshops: openshift_101_dcmetromap
 menu:
   main:
     parent: workshops

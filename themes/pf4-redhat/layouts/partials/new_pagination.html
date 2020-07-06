@@ -1,0 +1,46 @@
+{{ $taxonomy := .Params.workshops }}
+{{ $sortByField := "workshop_weight" }}
+
+{{ $firstLab := (index (first 1 ((index $.Site.Taxonomies.workshops $taxonomy).Pages.ByParam $sortByField)) 0) }}
+{{ $lastLab := (index (last 1 ((index $.Site.Taxonomies.workshops $taxonomy).Pages.ByParam $sortByField)) 0) }}
+{{ $nextLab := (((index $.Site.Taxonomies.workshops $taxonomy).Pages.ByParam $sortByField).Prev .) }}
+{{ $prevLab := (((index $.Site.Taxonomies.workshops $taxonomy).Pages.ByParam $sortByField).Next .) }}
+
+<div class="pf-c-toolbar pf-u-mb-xl pagination-toolbar">
+  <div class="pf-c-toolbar__content">
+    <div class="pf-c-toolbar__content-section">
+
+      <div class="pf-c-toolbar__group pf-m-toggle-group pf-m-show-on-lg pf-u-w-100 pf-u-display-inline-block">
+        {{ if ne $prevLab $lastLab }}
+        {{with ($prevLab)}}
+        <div class="pf-c-toolbar__item pf-m-search-filter pf-u-float-left">
+          <div class="pf-c-input-group" aria-label="search filter" role="group">
+            <div class="pf-c-dropdown">
+              <a href="{{ .Permalink }}" class="pf-c-dropdown__toggle" type="button"
+                id="toolbar-toggle-group-example-content-button" aria-expanded="false">
+                <span class="pf-c-dropdown__toggle-text">&larr; Previous: {{ .Title }}</span>
+              </a>
+            </div>
+          </div>
+        </div>
+        {{end}}
+        {{end}}
+
+        {{ if ne $nextLab $firstLab }}
+        {{with ($nextLab)}}
+        <div class="pf-c-toolbar__item pf-m-search-filter pf-u-float-right">
+          <div class="pf-c-input-group" aria-label="search filter" role="group">
+            <div class="pf-c-dropdown">
+              <a href="{{ .Permalink }}" class="pf-c-dropdown__toggle" type="button"
+                id="toolbar-toggle-group-example-content-button" aria-expanded="false">
+                <span class="pf-c-dropdown__toggle-text">Next: {{ .Title }} &rarr;</span>
+              </a>
+            </div>
+          </div>
+        </div>
+        {{end}}
+        {{end}}
+      </div>
+    </div>
+  </div>
+</div>

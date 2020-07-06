@@ -1,5 +1,7 @@
 ---
 title: Source to Image
+draft: false
+workshops: source_to_image
 menu:
   main:
     parent: workshops

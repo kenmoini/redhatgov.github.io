@@ -1,5 +1,6 @@
 ---
 title: Red Hat OpenStack Platform 101
+workshops: rhosp_101
 menu:
   main:
     parent: workshops

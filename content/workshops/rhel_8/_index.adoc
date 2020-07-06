@@ -1,5 +1,6 @@
 ---
 title: Red Hat Enterprise Linux 8
+workshops: rhel_8
 menu:
   main:
     parent: workshops

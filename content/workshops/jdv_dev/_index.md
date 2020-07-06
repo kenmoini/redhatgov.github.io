@@ -1,5 +1,6 @@
 ---
 title: JBoss Data Virtualization Development
+workshops: jdv_dev
 menu:
   main:
     parent: workshops

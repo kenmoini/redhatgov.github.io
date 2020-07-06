@@ -1,5 +1,6 @@
 ---
 title: Container Security Workshop
+workshops: security_containers
 menu:
   main:
     parent: workshops

@@ -1,5 +1,6 @@
 ---
 title: Ansible Tower Workshop on Azure
+workshops: ansible_tower_azure
 menu:
   main:
     parent: workshops

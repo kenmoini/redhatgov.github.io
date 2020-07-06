@@ -1,0 +1,18 @@
+{{ $alertType := (.Get 0 | default "info") }}
+
+{{ if not (in "danger warning success info" $alertType) }}
+<strong>[ERROR]</strong> {{ $alertType }} is an invalid alert type. Available
+options are <code>danger</code>, <code>warning</code>, <code>success</code>,
+and <code>info</code>. If an alert type is not specified, it will default to
+<code>info</code>.
+{{ else }}
+<div class="pf-c-alert pf-c-alert-{{ .Get 0 | default "info" }}" aria-label="Alert">
+  <div class="pf-c-alert__icon">
+    {{ $alertIconClass := dict "danger" "fa-exclamation-circle" "warning" "fa-exclamation-triangle" "success" "fa-check-circle" "info" "fa-info-circle" }}
+    <i class="fas fa-fw {{ index $alertIconClass $alertType }}" aria-hidden="true"></i>
+  </div>
+  <h5 class="pf-c-alert__title">
+    {{ .Inner }}
+  </h5>
+</div>
+{{ end }}

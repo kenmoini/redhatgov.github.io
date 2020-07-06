@@ -9,6 +9,8 @@ metaDataFormat = "yaml"
 
 [params]
     description = "Tried. Tested. Trusted."
+    #jigBackend = "http://localhost:8000"
+    jigBackend = "https://jig.polyglot.academy"
 
 [taxonomies]
     workshop = "workshops"

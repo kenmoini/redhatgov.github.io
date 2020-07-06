@@ -1,5 +1,6 @@
 ---
 title: Agile Integrations Workshop - Developer
+workshops: agile_integrations_dev
 menu:
   main:
     parent: workshops

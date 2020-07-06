@@ -1,5 +1,6 @@
 ---
 title: Linux Containers the Hard Way
+workshops: containers_the_hard_way
 menu:
   main:
     parent: workshops

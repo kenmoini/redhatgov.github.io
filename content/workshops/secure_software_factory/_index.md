@@ -1,5 +1,6 @@
 ---
 title: DevSecOps Workshop - Secure Software Factory
+workshops: secure_software_factory
 menu:
   main:
     parent: workshops

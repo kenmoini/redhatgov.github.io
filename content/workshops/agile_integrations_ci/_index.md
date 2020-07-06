@@ -1,5 +1,6 @@
 ---
 title: Agile Integrations Workshop - Citizen Integrator
+workshops: agile_integrations_ci
 menu:
   main:
     parent: workshops

@@ -7,7 +7,9 @@
         <td class="text-right"><b>Domain</b></td>
         <td><span class="domain"></span></td>
         <td rowspan="3">
-          <img src="https://marketing-outfit-prod-images.s3-us-west-2.amazonaws.com/f5445ae0c9ddafd5b2f1836854d7416a/Logo-RedHat-Email.png" alt="Red Hat Logo" />
+          <img
+            src="https://marketing-outfit-prod-images.s3-us-west-2.amazonaws.com/f5445ae0c9ddafd5b2f1836854d7416a/Logo-RedHat-Email.png"
+            alt="Red Hat Logo" />
         </td>
       </tr>
       <tr>
@@ -109,8 +111,8 @@
   }
   function setWorkshopFooterData() {
     //Sets the cookies, nom nom nom...
-    Cookies2.set("domain", jQuery("select#domain").val(), { path: cookiePath, expires: 7 } );
-    Cookies2.set("userid", jQuery("select#userid").val(), { path: cookiePath, expires: 7 } );
+    Cookies2.set("domain", jQuery("select#domain").val(), { path: cookiePath, expires: 7 });
+    Cookies2.set("userid", jQuery("select#userid").val(), { path: cookiePath, expires: 7 });
     replaceClassText();
   }
   function setWorkshopFooterInputValues() {
@@ -121,27 +123,27 @@
     //Set the defaults in the footer input fields
     jQuery("select#domain, select#userid").prop("selectedIndex", 0);
     //Set the defaults in our cookies nom nom nom
-    Cookies2.set("domain", jQuery("select#domain option").first().val(), { path: cookiePath, expires: 7 } ); //Sets to the first item in the drop down
-    Cookies2.set("userid", jQuery("select#userid option").first().val(), { path: cookiePath, expires: 7 } ); //Sets to the first item in the drop down
+    Cookies2.set("domain", jQuery("select#domain option").first().val(), { path: cookiePath, expires: 7 }); //Sets to the first item in the drop down
+    Cookies2.set("userid", jQuery("select#userid option").first().val(), { path: cookiePath, expires: 7 }); //Sets to the first item in the drop down
     //Set the defaults in the footer "output"
     //Hehe, we just do that by running the replaceClassText function
     replaceClassText();
   }
 
-  jQuery(document).ready(function() {
+  jQuery(document).ready(function () {
     pageLoadWorkshopFooterTest();
 
-    jQuery("form#footerForm").submit(function() {
+    jQuery("form#footerForm").submit(function () {
       setWorkshopFooterData();
       return false; //Prevent normal processing of submission
     });
 
-    jQuery("form#footerForm").bind("reset", function() {
+    jQuery("form#footerForm").bind("reset", function () {
       resetWorkshopFooter();
       return true;
     });
 
     return false;
   });
--->
+  -->
 </script>

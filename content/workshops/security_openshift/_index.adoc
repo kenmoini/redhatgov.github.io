@@ -1,5 +1,6 @@
 ---
 title: OpenShift Security Workshop
+workshops: security_openshift
 menu:
   main:
     parent: workshops

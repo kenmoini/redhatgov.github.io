@@ -1,0 +1,10 @@
+{{ $taxonomy := .Get 0 }}
+{{ $sortByField := "workshop_weight" }}
+
+<ul>
+  {{ range ((index $.Site.Taxonomies.workshops $taxonomy).Pages.ByParam $sortByField) }}
+  <li>
+    <a href="{{ .Permalink }}">{{ .Title }}</a>
+  </li>
+  {{ end }}
+</ul>

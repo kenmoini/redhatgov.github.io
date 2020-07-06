@@ -1,5 +1,6 @@
 ---
 title: Example Workshop
+workshops: example
 menu:
   main:
     parent: workshops
