@@ -5,6 +5,8 @@ RUN mkdir /opt/app-src
 COPY . /opt/app-src
 
 RUN apk --update --no-cache add asciidoctor util-linux asciidoc \
+ && cd /opt/app-src/themes/pf4-redhat/static \
+ && npm install \
  && cd /opt/app-src \
  && bin/hugo
 
