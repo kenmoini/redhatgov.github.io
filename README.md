@@ -24,6 +24,17 @@ If you want to build RedHatGov.io right away:
 
     `$ hugo server`
 
+## Deployment as a Container Image
+
+In the root of this repository, you'll find a `Dockerfile` which can be used to build a container image:
+
+```bash
+podman build -t redhat-workshops .
+podman run -p 8080:8080 redhat-workshops
+```
+
+Navigate your browser to http://localhost:8080 to access the running container.
+
 ## Contributing
 
 If you have content that you'd like to contribute, check out our
