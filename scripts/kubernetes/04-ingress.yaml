@@ -1,0 +1,22 @@
+kind: Ingress
+apiVersion: extensions/v1beta1
+metadata:
+  name: rhgov-workshops
+  namespace: rhgov-workshops
+  labels:
+    app: rhgov-workshops
+  annotations:
+    kubernetes.io/tls-acme: "true"
+spec:
+  tls:
+    - hosts:
+        - rhgov-workshops.polyglot.academy
+      secretName: site-rhgov-workshops-tls
+  rules:
+    - host: rhgov-workshops.polyglot.academy
+      http:
+        paths:
+          - path: /
+            backend:
+              serviceName: rhgov-workshops
+              servicePort: 8080

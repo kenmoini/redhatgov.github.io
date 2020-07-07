@@ -1,0 +1,25 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rhgov-workshops
+  namespace: rhgov-workshops
+spec:
+  selector:
+    matchLabels:
+      app: rhgov-workshops
+  strategy:
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: rhgov-workshops # has to match .spec.selector.matchLabels
+    spec:
+      terminationGracePeriodSeconds: 30
+      containers:
+        - name: rhgov-workshops
+          imagePullPolicy: Always
+          image: kenmoini/rhgov-workshops:latest
+          ports:
+            - containerPort: 8080
+              name: web

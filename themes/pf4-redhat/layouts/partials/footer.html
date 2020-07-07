@@ -180,21 +180,27 @@
           '<tr role="row"><td colspan="5" class="pf-u-text-align-center">Loading...</td></tr>'
         );
         jQuery.ajax({
-          type: 'GET',
+          type: 'POST',
           url: '{{ .Site.Params.jigBackend }}/api/v1/find-available-events/',
-          complete(data) {
-            console.log(data.responseJSON);
+          error(data) {
+            jQuery('#availableEventsListingTable tbody').html(
+              '<tr role="row"><td colspan="5" class="pf-u-text-align-center">Error loading records</td></tr>'
+            );
+          },
+          success(data) {
+            console.log(data);
             jQuery('#availableEventsListingTable tbody').html('');
-
-            for (const x of data.responseJSON.events) {
-              console.log(x.event_eid);
-              let appendedHTML = `<tr role="row"><td role="cell" data-label="Event ID">${x.event_eid}</td><td role="cell" data-label="Event Title">${x.event_title}</td><td role="cell" data-label="Workshop">${x.workshop_title}</td><td role="cell" data-label="Seats">(${x.seats_available}/${x.seat_count})</td><td role="cell" data-label="Actions">`;
-              if (parseInt(x.seats_available) > 0) {
-                appendedHTML += `<button class="joinAvailableWorkshopBtn pf-c-button pf-m-primary" data-event-eid="${x.event_eid}">Join</button></td></tr>`;
-              } else {
-                appendedHTML += `<strong>FULL!</strong></td></tr>`;
+            if (data.code == 'available-events-found') {
+              for (const x of data.events) {
+                console.log(x.event_eid);
+                let appendedHTML = `<tr role="row"><td role="cell" data-label="Event ID">${x.event_eid}</td><td role="cell" data-label="Event Title">${x.event_title}</td><td role="cell" data-label="Workshop">${x.workshop_title}</td><td role="cell" data-label="Seats">(${x.seats_available}/${x.seat_count})</td><td role="cell" data-label="Actions">`;
+                if (parseInt(x.seats_available) > 0) {
+                  appendedHTML += `<button class="joinAvailableWorkshopBtn pf-c-button pf-m-primary" data-event-eid="${x.event_eid}">Join</button></td></tr>`;
+                } else {
+                  appendedHTML += `<strong>FULL!</strong></td></tr>`;
+                }
+                jQuery('#availableEventsListingTable tbody').append(appendedHTML);
               }
-              jQuery('#availableEventsListingTable tbody').append(appendedHTML);
             }
           },
         });
