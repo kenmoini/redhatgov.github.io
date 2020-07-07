@@ -1,6 +1,18 @@
 if (typeof Cookies2 !== 'function') {
   var Cookies2 = Cookies.noConflict();
 }
+
+if (typeof cleanArray !== 'function') {
+  function cleanArray(actual) {
+    const newArray = new Array();
+    for (let i = 0; i < actual.length; i++) {
+      if (actual[i]) {
+        newArray.push(actual[i]);
+      }
+    }
+    return newArray;
+  }
+}
 // Gravatar Processing
 function getGravatarLink(email, size = 70) {
   const md5Email = md5(email.toLowerCase()).toString();
@@ -89,6 +101,13 @@ function readCookiesAndSetVisual() {
   }
   if (Cookies2.get('active_workshop_path', { path: '/' })) {
     templateBakedCookies();
+    const wPath = cleanArray(window.location.pathname.split('/'));
+    const basePath = `/${wPath[0]}/${wPath[1]}/`;
+    if (Cookies2.get('active_workshop_path', { path: '/' }) === basePath) {
+      jQuery('#workshopFooterDetails')
+        .next()
+        .addClass('pf-u-hidden');
+    }
     jQuery('#eventIDModalBtn').addClass('pf-u-hidden');
     jQuery('#gotoWorkshopBtn').removeClass('pf-u-hidden');
   }

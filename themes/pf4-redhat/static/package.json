@@ -1,1 +1,22 @@
-{"name": "pf4-redhat","version": "1.0.0","description": "Patternfly 4 theme for Hugo made for Red Hat workshops","main": "index.js","dependencies": {"@patternfly/patternfly": "^4.16.7","@popperjs/core": "^2.4.4","blueimp-md5": "^2.16.0","bootstrap": "^4.5.0","jquery": "^3.5.1","jquery-slimscroll": "^1.3.8","jquery-validation": "^1.19.2","js-cookie": "^2.2.1"},"devDependencies": {},"scripts": {"test": "exit 0"},"author": "Ken Moini","license": "MIT"}
+{
+  "name": "pf4-redhat",
+  "version": "1.0.0",
+  "description": "Patternfly 4 theme for Hugo made for Red Hat workshops",
+  "main": "index.js",
+  "dependencies": {
+    "@patternfly/patternfly": "^4.16.7",
+    "@popperjs/core": "^2.4.4",
+    "blueimp-md5": "^2.16.0",
+    "bootstrap": "^4.5.0",
+    "jquery": "^3.5.1",
+    "jquery-slimscroll": "^1.3.8",
+    "jquery-validation": "^1.19.2",
+    "js-cookie": "^2.2.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "exit 0"
+  },
+  "author": "Ken Moini",
+  "license": "MIT"
+}
