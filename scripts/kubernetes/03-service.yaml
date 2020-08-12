@@ -2,13 +2,15 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: rhgov-workshops
-  namespace: rhgov-workshops
+  name: rh-workshops-svc
+  namespace: rh-workshops
   labels:
-    app: rhgov-workshops
+    app: rh-workshops
+    app.kubernetes.io/name: rh-workshops
+    app.kubernetes.io/part-of: rh-workshops
 spec:
   ports:
     - port: 8080
       name: web
   selector:
-    app: rhgov-workshops
+    app: rh-workshops

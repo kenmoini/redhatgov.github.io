@@ -1,10 +1,13 @@
+---
 kind: Ingress
 apiVersion: extensions/v1beta1
 metadata:
-  name: rhgov-workshops
-  namespace: rhgov-workshops
+  name: rh-workshops
+  namespace: rh-workshops
   labels:
-    app: rhgov-workshops
+    app: rh-workshops
+    app.kubernetes.io/name: rh-workshops
+    app.kubernetes.io/part-of: rh-workshops
   annotations:
     kubernetes.io/tls-acme: "true"
 spec:
@@ -18,5 +21,5 @@ spec:
         paths:
           - path: /
             backend:
-              serviceName: rhgov-workshops
+              serviceName: rh-workshops-svc
               servicePort: 8080

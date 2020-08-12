@@ -2,22 +2,26 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: rhgov-workshops
-  namespace: rhgov-workshops
+  name: rh-workshops
+  namespace: rh-workshops
+  labels:
+    app: rh-workshops
+    app.kubernetes.io/name: rh-workshops
+    app.kubernetes.io/part-of: rh-workshops
 spec:
   selector:
     matchLabels:
-      app: rhgov-workshops
+      app: rh-workshops
   strategy:
     type: RollingUpdate
   template:
     metadata:
       labels:
-        app: rhgov-workshops # has to match .spec.selector.matchLabels
+        app: rh-workshops # has to match .spec.selector.matchLabels
     spec:
       terminationGracePeriodSeconds: 30
       containers:
-        - name: rhgov-workshops
+        - name: rh-workshops
           imagePullPolicy: Always
           image: kenmoini/rhgov-workshops:latest
           ports:

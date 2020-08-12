@@ -55,10 +55,8 @@ function templateBakedCookies() {
   // console.log('templating cookies...');
   const bakedCookies = JSON.parse(Cookies2.get('bakedCookies', { path: '/' }));
   for (const key of Object.keys(bakedCookies)) {
-    if (
-      bakedCookies[key].cookie_value.startsWith('[[') &&
-      bakedCookies[key].cookie_value.endsWith(']]')
-    ) {
+    const cookieValStr = String(bakedCookies[key].cookie_value);
+    if (cookieValStr.startsWith('[[') && cookieValStr.endsWith(']]')) {
       const findKey = bakedCookies[key].cookie_value.slice(2, -2);
       const newCookieVal = Cookies2.get(findKey, {
         path: Cookies2.get('active_workshop_path', { path: '/' }),

@@ -180,7 +180,7 @@
           '<tr role="row"><td colspan="5" class="pf-u-text-align-center">Loading...</td></tr>'
         );
         jQuery.ajax({
-          type: 'POST',
+          type: 'GET',
           url: '{{ .Site.Params.jigBackend }}/api/v1/find-available-events/',
           error(data) {
             jQuery('#availableEventsListingTable tbody').html(

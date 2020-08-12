@@ -2,4 +2,8 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: rhgov-workshops
+  name: rh-workshops
+  labels:
+    app: rh-workshops
+    app.kubernetes.io/name: rh-workshops
+    app.kubernetes.io/part-of: rh-workshops
